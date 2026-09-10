@@ -1,39 +1,39 @@
 # Chord Autoscroll
 
-**Un editor de texto con auto-scroll y transposición de acordes para guitarristas.**
+**A text editor with auto-scroll and chord transposition for guitarists.**
 
-Chord Autoscroll es una aplicación escrita en Python y PyQt6 diseñada para guitarristas y músicos que necesitan gestionar archivos de canciones en formato texto (.txt) con letras y acordes. Permite leer canciones con desplazamiento automático y transponer acordes al instante para adaptarlos a la voz del cantante o a la afinación del instrumento.
-
----
-
-## Características
-
-- **Auto-scroll ajustable**: Desplazamiento automático del texto con velocidad configurable en tiempo real.
-- **Transposición de acordes**: Transpone acordes musicales de -7 a +7 semitonos, con opción de usar sostenidos o bemoles.
-- **Múltiples pestañas**: Abre y edita varias canciones simultáneamente.
-- **Verificación ortográfica**: Resalta palabras mal escritas con subrayado rojo ondulado (soporte para español e inglés).
-- **Buscar y reemplazar**: Búsqueda de texto con opción de coincidencia exacta.
-- **Arrastrar y soltar**: Abre archivos .txt arrastrándolos directamente a la ventana.
-- **Configuración persistente**: Guarda automáticamente la fuente, velocidad, preferencia de accidentes y última ruta usada.
-- **Detección de codificación**: Identifica automáticamente la codificación de archivos (UTF-8, ISO-8859-1, Windows-1252, etc.).
-- **Atajos de teclado**: Acceso rápido a las funciones más usadas.
-- **Interfaz en español**: Traducción completa de los diálogos de Qt.
+Chord Autoscroll is an application written in Python and PyQt6 designed for guitarists and musicians who need to manage song files in text format (.txt) with lyrics and chords. It allows reading songs with automatic scrolling and instantly transposing chords to adapt them to the singer's voice or the instrument's tuning.
 
 ---
 
-## Requisitos
+## Features
+
+- **Adjustable auto-scroll**: Automatic text scrolling with configurable speed in real time.
+- **Chord transposition**: Transposes musical chords from -7 to +7 semitones, with option to use sharps or flats.
+- **Multiple tabs**: Open and edit several songs simultaneously.
+- **Spell checking**: Highlights misspelled words with red wavy underline (supports Spanish and English).
+- **Find and replace**: Text search with exact match option.
+- **Drag and drop**: Open .txt files by dragging them directly into the window.
+- **Persistent configuration**: Automatically saves font, speed, accidentals preference, and last used path.
+- **Encoding detection**: Automatically identifies file encoding (UTF-8, ISO-8859-1, Windows-1252, etc.).
+- **Keyboard shortcuts**: Quick access to the most used functions.
+- **Spanish interface**: Complete translation of Qt dialogs.
+
+---
+
+## Requirements
 
 - Python 3.x
 - PyQt6
-- Sistema operativo Linux (probado en Debian 12, MX Linux 23, antiX 23)
+- Linux operating system (tested on Debian 12, MX Linux 23, antiX 23)
 
 ---
 
-## Instalación
+## Installation
 
-### 1. Instalar dependencias
+### 1. Install dependencies
 
-Ejecuta el siguiente comando en la terminal:
+Run the following command in the terminal:
 
 ```bash
 sudo apt-get install python3 python3-pyqt6 python3-all-dev \
@@ -41,15 +41,15 @@ sudo apt-get install python3 python3-pyqt6 python3-all-dev \
     python3-chardet python3-enchant
 ```
 
-### 2. Ejecutar el programa
+### 2. Run the program
 
-Navega a la carpeta del proyecto y ejecuta:
+Navigate to the project folder and run:
 
 ```bash
 python3 chord_autoscroll.py
 ```
 
-También puedes usar el lanzador incluido:
+You can also use the included launcher:
 
 ```bash
 ./Launcher.sh
@@ -57,57 +57,57 @@ También puedes usar el lanzador incluido:
 
 ---
 
-## Uso
+## Usage
 
-### Abrir canciones
+### Opening songs
 
-Existen dos maneras de cargar archivos de texto con acordes:
+There are two ways to load text files with chords:
 
-- **Arrastrar y soltar**: Arrastra un archivo `.txt` hacia la ventana del programa.
-- **Desde el menú**: Haz clic en **Archivo > Abrir** y selecciona el archivo.
+- **Drag and drop**: Drag a `.txt` file into the program window.
+- **From the menu**: Click **File > Open** and select the file.
 
-### Transponer acordes
+### Transposing chords
 
-Haz clic en el botón **"Transponer"** (esquina inferior derecha) para abrir un menú de semitonos. Selecciona un valor entre -7 y +7 para transponer todos los acordes de la canción actual.
+Click the **"Transpose"** button (bottom right corner) to open a semitone menu. Select a value between -7 and +7 to transpose all chords in the current song.
 
-Puedes cambiar entre sostenidos (#) y bemoles (b) desde **Herramientas > Usar Sostenidos**.
+You can switch between sharps (#) and flats (b) from **Tools > Use Sharps**.
 
-### Control de auto-scroll
+### Auto-scroll control
 
-- Haz clic en **"Iniciar"** para comenzar el desplazamiento automático.
-- Haz clic en **"Detener"** para pausarlo.
-- Ajusta la velocidad con el deslizador inferior.
-- Puedes cambiar la velocidad máxima desde **Herramientas > Cambiar Velocidad Máxima**.
+- Click **"Start"** to begin automatic scrolling.
+- Click **"Stop"** to pause it.
+- Adjust the speed with the bottom slider.
+- You can change the maximum speed from **Tools > Change Maximum Speed**.
 
-### Buscar y reemplazar
+### Find and replace
 
-Presiona **Ctrl+F** o ve a **Editar > Buscar y Reemplazar** para abrir el diálogo de búsqueda. Puedes activar la coincidencia exacta para distinguir entre mayúsculas y minúsculas.
+Press **Ctrl+F** or go to **Edit > Find and Replace** to open the search dialog. You can enable exact match to distinguish between uppercase and lowercase.
 
-### Cambiar fuente
+### Change font
 
-Ve a **Formato > Fuente** para seleccionar la familia y tamaño de fuente.
+Go to **Format > Font** to select the font family and size.
 
-### Cambiar idioma del corrector
+### Change checker language
 
-Ve a **Herramientas > Idioma del Corrector** para alternar entre español e inglés.
-
----
-
-## Atajos de teclado
-
-| Atajo | Acción |
-|-------|--------|
-| `Ctrl+O` | Abrir archivo |
-| `Ctrl+S` | Guardar archivo |
-| `Ctrl+F` | Buscar y reemplazar |
-| `Ctrl++` | Aumentar tamaño de fuente |
-| `Ctrl+-` | Disminuir tamaño de fuente |
+Go to **Tools > Checker Language** to switch between Spanish and English.
 
 ---
 
-## Archivos de ejemplo
+## Keyboard shortcuts
 
-La carpeta `Ejemplos/` incluye canciones de muestra en formato texto con acordes:
+| Shortcut | Action |
+|----------|--------|
+| `Ctrl+O` | Open file |
+| `Ctrl+S` | Save file |
+| `Ctrl+F` | Find and replace |
+| `Ctrl++` | Increase font size |
+| `Ctrl+-` | Decrease font size |
+
+---
+
+## Example files
+
+The `Ejemplos/` folder includes sample songs in text format with chords:
 
 - A quien iré - Luis Enrique Espinosa (C)
 - A quien iré - Luis Enrique Espinosa (D)
@@ -123,9 +123,9 @@ La carpeta `Ejemplos/` incluye canciones de muestra en formato texto con acordes
 
 ---
 
-## Formato de acordes soportado
+## Supported chord format
 
-El programa reconoce acordes en el siguiente formato:
+The program recognizes chords in the following format:
 
 ```
 C, Cm, Cmaj7, Cdim, Caug, Csus4, Cadd9
@@ -137,51 +137,51 @@ A, Am, A7, A#m, Bb
 B, Bm, B7
 ```
 
-Los acordes deben estar en líneas donde la mayoría de las palabras sean acordes para que la transposición funcione correctamente.
+Chords must be on lines where most words are chords for transposition to work correctly.
 
 ---
 
-## Configuración
+## Configuration
 
-La configuración se guarda automáticamente en un archivo JSON (`chord_autoscroll.json`) e incluye:
+Configuration is automatically saved in a JSON file (`chord_autoscroll.json`) and includes:
 
-- Familia y tamaño de fuente
-- Velocidad de desplazamiento y posición del deslizador
-- Velocidad máxima de desplazamiento
-- Preferencia de sostenidos/bemoles
-- Última ruta de archivo abierto
+- Font family and size
+- Scroll speed and slider position
+- Maximum scroll speed
+- Sharps/flats preference
+- Last opened file path
 
 ---
 
-## Dependencias
+## Dependencies
 
-| Paquete | Descripción |
+| Package | Description |
 |---------|-------------|
-| `python3-pyqt6` | Framework gráfico para la interfaz de usuario |
-| `python3-chardet` | Detección automática de codificación de archivos |
-| `python3-enchant` | Verificación ortográfica (corrector) |
-| `fonts-noto-mono` | Fuente monoespaciada para visualización de acordes |
-| `qt6-translations-l10n` | Archivos de traducción de Qt para la interfaz en español |
-| `python3-all-dev` | Archivos de desarrollo necesarios para compilar `enchant` |
+| `python3-pyqt6` | Graphical framework for the user interface |
+| `python3-chardet` | Automatic file encoding detection |
+| `python3-enchant` | Spell checking (checker) |
+| `fonts-noto-mono` | Monospaced font for chord display |
+| `qt6-translations-l10n` | Qt translation files for Spanish interface |
+| `python3-all-dev` | Development files needed to compile `enchant` |
 
 ---
 
-## Detalle técnico: Uso de dependencias
+## Technical detail: Usage of dependencies
 
-A continuación se explica cómo se utiliza cada paquete en el código:
+Below is an explanation of how each package is used in the code:
 
 ### 1. PyQt6 (`python3-pyqt6`)
 
-Es el framework principal que provee toda la interfaz gráfica. Se usa en tres módulos:
+It is the main framework that provides the entire graphical interface. It is used in three modules:
 
-**QtGui - Componentes de interfaz:**
+**QtGui - Interface components:**
 ```python
 from PyQt6.QtGui import (QFont, QAction, QActionGroup, QTextCursor,
                           QShortcut, QKeySequence, QTextCharFormat, QColor,
                           QSyntaxHighlighter, QRegularExpression)
 ```
 
-**QtWidgets - Ventanas y controles:**
+**QtWidgets - Windows and controls:**
 ```python
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QTextEdit, QVBoxLayout,
                               QHBoxLayout, QWidget, QPushButton, QLabel, QSlider,
@@ -189,22 +189,22 @@ from PyQt6.QtWidgets import (QApplication, QMainWindow, QTextEdit, QVBoxLayout,
                               QTabWidget, QDialog, QLineEdit, QCheckBox, QGridLayout)
 ```
 
-**QtCore - Funcionalidades principales:**
+**QtCore - Core functionalities:**
 ```python
 from PyQt6.QtCore import Qt, QTimer, QTranslator, QLocale, QLibraryInfo
 ```
 
-**Ejemplo de uso - Timer para auto-scroll:**
+**Usage example - Timer for auto-scroll:**
 ```python
-# Inicia un temporizador que llama a scroll_text cada cierto intervalo
+# Starts a timer that calls scroll_text at a given interval
 self.scroll_timer = QTimer()
 self.scroll_timer.timeout.connect(self.scroll_text)
 self.scroll_timer.start(self.scroll_speed)
 ```
 
-**Ejemplo de uso - Atajos de teclado:**
+**Usage example - Keyboard shortcuts:**
 ```python
-# Crea un atajo de teclado para buscar (Ctrl+F)
+# Creates a keyboard shortcut for search (Ctrl+F)
 find_shortcut = QShortcut(QKeySequence("Ctrl+F"), self)
 find_shortcut.activated.connect(self.show_find_replace_dialog)
 ```
@@ -213,28 +213,28 @@ find_shortcut.activated.connect(self.show_find_replace_dialog)
 
 ### 2. Chardet (`python3-chardet`)
 
-Se utiliza para detectar automáticamente la codificación de archivos de texto al abrirlos. Esto permite manejar archivos en UTF-8, ISO-8859-1, Windows-1252, etc.
+It is used to automatically detect the encoding of text files when opening them. This allows handling files in UTF-8, ISO-8859-1, Windows-1252, etc.
 
-**Uso en el código (línea 749):**
+**Usage in code (line 749):**
 ```python
 def open_dropped_file(self, file_path):
     if os.path.exists(file_path) and file_path.lower().endswith('.txt'):
         with open(file_path, 'rb') as file:
             raw_data = file.read()
-            # Detecta la codificación del archivo
+            # Detects file encoding
             detected = chardet.detect(raw_data)
             encoding = detected['encoding'] or 'utf-8'
 ```
 
-**¿Por qué es necesario?** Sin `chardet`, al abrir un archivo con codificación diferente a UTF-8 (por ejemplo, un archivo creado en Windows con Windows-1252), el texto podría mostrar caracteres incorrectos (como � en lugar de acentos).
+**Why is it necessary?** Without `chardet`, opening a file with encoding different from UTF-8 (for example, a file created in Windows with Windows-1252), the text could display incorrect characters (like � instead of accents).
 
 ---
 
 ### 3. Enchant (`python3-enchant`)
 
-Se utiliza para la verificación ortográfica en tiempo real. Resalta palabras mal escritas con un subrayado rojo ondulado.
+It is used for real-time spell checking. Highlights misspelled words with a red wavy underline.
 
-**Uso en el código (líneas 31-63):**
+**Usage in code (lines 31-63):**
 ```python
 import enchant
 
@@ -247,10 +247,10 @@ class SpellChecker(QSyntaxHighlighter):
 
     def load_dictionary(self):
         try:
-            # Carga el diccionario español
+            # Loads Spanish dictionary
             self.spell_dict = enchant.Dict(self.current_language)
         except enchant.errors.DictNotFoundError:
-            # Si no encuentra español, intenta con inglés
+            # If Spanish not found, tries English
             try:
                 self.spell_dict = enchant.Dict("en_US")
                 self.current_language = 'en_US'
@@ -260,49 +260,49 @@ class SpellChecker(QSyntaxHighlighter):
     def highlightBlock(self, text):
         if not self.spell_dict:
             return
-        # Patrón para encontrar palabras (solo letras)
+        # Pattern to find words (letters only)
         word_pattern = QRegularExpression(r'\b[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ]+\b')
         iterator = word_pattern.globalMatch(text)
 
         while iterator.hasNext():
             match = iterator.next()
             word = match.captured(0)
-            # Si la palabra no está en el diccionario, la resalta
+            # If word is not in dictionary, highlight it
             if not self.spell_dict.check(word):
                 self.setFormat(match.capturedStart(), match.capturedLength(),
                                self.misspelled_format)
 ```
 
-**¿Por qué es necesario?** `enchant` es un backend de verificación ortográfica que soporta múltiples diccionarios. Sin él, no se podría ofrecer la función de resaltar errores ortográficos en las letras de las canciones.
+**Why is it necessary?** `enchant` is a spell checking backend that supports multiple dictionaries. Without it, the function to highlight spelling errors in song lyrics could not be offered.
 
 ---
 
 ### 4. Qt Translations (`qt6-translations-l10n`)
 
-Proporciona los archivos de traducción de Qt al español. No se importa directamente en Python, sino que `QTranslator` busca los archivos `.qm` en las rutas del sistema.
+Provides Qt translation files to Spanish. It is not directly imported in Python, but `QTranslator` looks for `.qm` files in system paths.
 
-**Uso en el código (líneas 311-320):**
+**Usage in code (lines 311-320):**
 ```python
 def __init__(self):
     super().__init__()
     self.translator = QTranslator()
-    # Obtiene la ruta donde Qt guarda las traducciones
+    # Gets the path where Qt stores translations
     translations_path = QLibraryInfo.path(QLibraryInfo.LibraryPath.TranslationsPath)
 
-    # Carga la traducción al español de Qt
+    # Loads Qt Spanish translation
     if self.translator.load("qtbase_es", translations_path):
         QApplication.installTranslator(self.translator)
 ```
 
-**¿Por qué es necesario?** Sin este paquete, los diálogos nativos de Qt (como "Abrir archivo", "Guardar como", botones "Aceptar/Cancelar") aparecerían en inglés. Con el paquete instalado, estos elementos se muestran automáticamente en español.
+**Why is it necessary?** Without this package, native Qt dialogs (like "Open file", "Save as", "OK/Cancel" buttons) would appear in English. With the package installed, these elements are automatically displayed in Spanish.
 
 ---
 
 ### 5. Noto Mono (`fonts-noto-mono`)
 
-Es la fuente predeterminada para mostrar el texto. No se importa en Python, sino que se especifica por nombre en la configuración.
+It is the default font for displaying text. It is not imported in Python, but specified by name in the configuration.
 
-**Uso en el código (línea 1038):**
+**Usage in code (line 1038):**
 ```python
 def load_config(self):
     if os.path.exists(self.config_file):
@@ -311,29 +311,29 @@ def load_config(self):
     else:
         self.config = {
             'max_speed': 100,
-            'font_family': 'Noto Mono',  # Fuente predeterminada
+            'font_family': 'Noto Mono',  # Default font
             'font_size': 10,
             'last_opened_path': '',
             'use_sharps': True
         }
 ```
 
-**¿Por qué es necesario?** Una fuente monoespaciada es esencial para alinear correctamente los acordes con las letras de las canciones. Los acordes deben quedar exactamente encima de la sílaba donde se tocan, y esto solo es posible con fuentes de ancho fijo.
+**Why is it necessary?** A monospaced font is essential to correctly align chords with song lyrics. Chords must be placed exactly above the syllable where they are played, and this is only possible with fixed-width fonts.
 
 ---
 
 ### 6. Python All Dev (`python3-all-dev`)
 
-Es un paquete de desarrollo que proporciona las cabeceras de Python necesarias para compilar extensiones en C/C++. No se usa directamente en el código, pero es un requisito de compilación para `python3-enchant`.
+It is a development package that provides Python headers needed to compile C/C++ extensions. It is not used directly in code, but is a compilation requirement for `python3-enchant`.
 
-**¿Por qué es necesario?** El paquete `python3-enchant` tiene dependencias que requieren compilación en C. Sin `python3-all-dev`, la instalación de `enchant` fallaría con errores de compilación.
-
----
-
-## Licencia
-
-Este proyecto está licenciado bajo la licencia GPL-3.0. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+**Why is it necessary?** The `python3-enchant` package has dependencies that require C compilation. Without `python3-all-dev`, the installation of `enchant` would fail with compilation errors.
 
 ---
 
-Que Dios les bendiga.
+## License
+
+This project is licensed under the GPL-3.0 license. See the [LICENSE](LICENSE) file for more details.
+
+---
+
+God bless you.
