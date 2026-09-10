@@ -2,7 +2,7 @@
 
 **A text editor with auto-scroll and chord transposition for guitarists.**
 
-> **¿Hablas español?** También disponemos de una versión en español de este documento: [README_ES.md](README_ES.md)
+> **¿Hablas español?** También está disponible de una versión en español de este documento: [README_ES.md](README_ES.md)
 
 Chord Autoscroll is an application written in Python and PyQt6 designed for guitarists and musicians who need to manage song files in text format (.txt) with lyrics and chords. It allows reading songs with automatic scrolling and instantly transposing chords to adapt them to the singer's voice or the instrument's tuning.
 
