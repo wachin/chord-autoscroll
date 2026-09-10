@@ -1,281 +1,339 @@
-# Manual de Instalación y Uso del Programa para Guitarristas en Linux Debian 12, MX Linux 23, antiX 23
+# Chord Autoscroll
 
-Este programa es ideal para guitarristas que necesitan gestionar archivos de canciones en formato de texto .txt y ajustar los acordes rápidamente durante ensayos. Con características de auto-scroll y transposición, tendrás todas las herramientas necesarias a tu disposición para poder adaptar una canción para tu voz.
+**Un editor de texto con auto-scroll y transposición de acordes para guitarristas.**
 
-## Probado en los siguientes Linux:
-- Linux Debian 12 de 32 bit
-- MX Linux 23 de 32 y 64 bit
-
+Chord Autoscroll es una aplicación escrita en Python y PyQt6 diseñada para guitarristas y músicos que necesitan gestionar archivos de canciones en formato texto (.txt) con letras y acordes. Permite leer canciones con desplazamiento automático y transponer acordes al instante para adaptarlos a la voz del cantante o a la afinación del instrumento.
 
 ---
 
-# Instrucciones de Instalación
+## Características
 
-## 1. Instalación de dependencias
-Antes de ejecutar el programa, necesitas asegurarte de que ciertos paquetes estén instalados en tu sistema. Ejecuta el siguiente comando en la terminal para instalar las dependencias necesarias:
+- **Auto-scroll ajustable**: Desplazamiento automático del texto con velocidad configurable en tiempo real.
+- **Transposición de acordes**: Transpone acordes musicales de -7 a +7 semitonos, con opción de usar sostenidos o bemoles.
+- **Múltiples pestañas**: Abre y edita varias canciones simultáneamente.
+- **Verificación ortográfica**: Resalta palabras mal escritas con subrayado rojo ondulado (soporte para español e inglés).
+- **Buscar y reemplazar**: Búsqueda de texto con opción de coincidencia exacta.
+- **Arrastrar y soltar**: Abre archivos .txt arrastrándolos directamente a la ventana.
+- **Configuración persistente**: Guarda automáticamente la fuente, velocidad, preferencia de accidentes y última ruta usada.
+- **Detección de codificación**: Identifica automáticamente la codificación de archivos (UTF-8, ISO-8859-1, Windows-1252, etc.).
+- **Atajos de teclado**: Acceso rápido a las funciones más usadas.
+- **Interfaz en español**: Traducción completa de los diálogos de Qt.
 
-**Para Debian 12, MX Linux 23, antiX 23)**
+---
+
+## Requisitos
+
+- Python 3.x
+- PyQt6
+- Sistema operativo Linux (probado en Debian 12, MX Linux 23, antiX 23)
+
+---
+
+## Instalación
+
+### 1. Instalar dependencias
+
+Ejecuta el siguiente comando en la terminal:
 
 ```bash
-sudo apt-get install python3 python3-pyqt6 python3-mpmath \
-    python3-simplejson python3-all-dev qt6-translations-l10n \
-    fonts-noto-mono python3-chardet python3-enchant
+sudo apt-get install python3 python3-pyqt6 python3-all-dev \
+    qt6-translations-l10n fonts-noto-mono \
+    python3-chardet python3-enchant
 ```
 
-**Nota:** Al final dejo explicaciones de para qué sirven algunos de estos paquetes.
+### 2. Ejecutar el programa
 
----
-
-## 2. Ejecutar el programa
-Una vez instaladas las dependencias, puedes ejecutar el programa desde la terminal. Navega a la carpeta donde se encuentra el archivo `chord_autoscroll.py` y usa el siguiente comando:
-
-Para Debian 12:
+Navega a la carpeta del proyecto y ejecuta:
 
 ```bash
 python3 chord_autoscroll.py
 ```
 
-así como en la siguiente captura de pantalla:
+También puedes usar el lanzador incluido:
 
-![](src/vx_images/01-lanzando-chord_autoscroll.py.webp)
-
-o si tu Distribución Linux cuenta con un lanzador de programas escritos en python como en MX Linux 23 con clic derecho en Thunar, o si deseas hacerlo en Dolphin instala mi [lanzador](https://facilitarelsoftwarelibre.blogspot.com/2024/08/anadir-dolphin-una-opcion-para-ejecutar-scrpts-en-python.html):
-
-
-![](src/vx_images/05-lanzador-python-para-dolphin.png)
-
----
-
-## Modo de Uso
-
-### 1. Abrir canciones
-Existen dos maneras de cargar tus archivos de texto con acordes en el programa:
-- **Arrastrar y soltar archivos**: Simplemente arrastra un archivo de texto (con extensión `.txt`) hacia la ventana del programa.
-- **Abrir desde el menú**: Haz clic en "Archivo > Abrir" en la barra de menú para seleccionar y cargar tus archivos.
-
-**Ejemplos de archivos incluidos:**
-
-🗀 Ejemplos/A quien iré - Luis Enrrique Espinosa (C).txt  
-🗀 Ejemplos/A quien iré - Luis Enrrique Espinosa (D).txt  
-🗀 Ejemplos/Canta al Señor - Vertical (C#).txt  
-🗀 Ejemplos/De tal manera - Abel Zabala (A#).txt  
-🗀 Ejemplos/El Espíritu de Dios - Hector Pinilla (E).txt  
-🗀 Ejemplos/La niña de tus ojos - Daniel Calveti (A).txt  
-🗀 Ejemplos/La niña de tus ojos - Daniel Calveti (C).txt  
-🗀 Ejemplos/No hay lugar mas alto - Miel San Marcos (A).txt  
-🗀 Ejemplos/Renuévame - Marcos Witt (C).txt  
-🗀 Ejemplos/Renuévame - Marcos Witt (D).txt  
-🗀 Ejemplos/Sumergeme - Jesus A.R (A#).txt   
-
-![](src/vx_images/04--Portada-la-niña-de-tus-ojos.png)
-
-### 2. Transponer acordes
-El programa cuenta con un botón **"Transponer"**, ubicado en la esquina inferior derecha. Al hacer clic, se abrirá un menú donde puedes ajustar los semitonos de tus acordes:
-- **Subir semitonos**: Desplázate hacia arriba para aumentar el tono.
-- **Bajar semitonos**: Desplázate hacia abajo para reducir el tono.
-
-Esto es especialmente útil cuando necesitas adaptar una canción a tu voz o a la afinación de tu guitarra.
-
-### 3. Control de desplazamiento
-El programa te permite desplazarte automáticamente por la letra y acordes de la canción, facilitando la lectura durante la interpretación.
-
-- **Iniciar/Pausar desplazamiento**: Usa los botones **"Iniciar"** y **"Pausar"** para controlar el desplazamiento automático.
-- **Ajustar velocidad**: Usa el deslizador de velocidad para ajustar la rapidez del desplazamiento según tu necesidad.
-
-### 4. Cambiar fuente
-El programa ofrece la posibilidad de personalizar la fuente de los acordes. En el menú "Opciones > Cambiar fuente", puedes seleccionar la fuente de tu preferencia. Por defecto, se utiliza una fuente monoespaciada **Noto Mono**, perfecta para asegurar la correcta alineación de los acordes.
-
-### 5. Cambiar y guardar la velocidad de desplazamiento
-El programa ofrece la posibilidad de cambiar la velociad. En el menú "Opciones > Cambiar velocidad máxima", puedes seleccionar puedes aumentar el número que allí aparece lo que hará que la velocidad de desplazamiento sea más baja, esto funciona bien en Sistemas Operativos Debian 12 y basados en el como MX Linux 23, antiX 23, etc
-
----
-
-### 6. Opciones de guardado de archivos
-
-El programa incluye tres opciones para guardar archivos en el menú "Archivo":
-
-**1. Guardar**
-
-Esta opción guarda el archivo utilizando la misma codificación y terminador de línea que tenía originalmente el archivo abierto o editado. Es útil para conservar la compatibilidad con otros programas o sistemas.
-
-**2. Guardar como...**
-
-Permite guardar el archivo en una nueva ubicación, pero conserva la codificación y el terminador de línea originales del archivo abierto o editado. No muestra opciones para cambiar la codificación.
-
-**3. Guardar Codificación como...**
-
-Esta opción te permite guardar el archivo seleccionando una codificación y terminador de línea diferentes. Al elegir esta opción, aparecerá un cuadro de diálogo donde puedes seleccionar entre las siguientes codificaciones:
-
-* **UTF-8**
- 
-* **UTF-16 LE**
- 
-* **UTF-16 BE**
- 
-* **UTF-8 con BOM**
- 
-* **ANSI**
-
-* **ISO-8859-1**
-
-Y también puedes seleccionar el tipo de terminador de línea:
-
-* **Windows (CRLF)**
-
-* **Unix (LF)**
-
-* **Mac (CR)**
-
-Esto es especialmente útil si necesitas que el archivo sea compatible con diferentes sistemas operativos o programas que requieren una codificación específica.
-
-
-
-### 7. He hecho un Cancionero con muchas alabanzas que usamos en la Iglesia
-
- En la siguiente dirección está mi cancionero con letras y acordes de guitarra:
-
-[https://github.com/wachin/Cancionero](https://github.com/wachin/Cancionero)
-
-lo puedes descargar así:
-
-![](src/vx_images/03-descarga-mi-cancionero-de-canciones-con-acordes-de-guitarra.webp)
-
-Las canciones están en la carpeta:  
-
-
-🗀 Acordes de Guitarra para celular (63x110mm)
-
-
-y debes instalar la siguiente fuente tipográfica que la dejé allí mismo para varias canciones que uso:
-
-
-🗀 Cancionero/Fonts/iosevka-wps-linux/  
-
-
-allí están las instrucciones de instalación. Aunque ultimamente he llegado a la conclusión que para las nuevas usaré la fuente de Microsoft llama Consolas pues pensando en los usuarios de Windows que usan Microsoft Office Word, y además para usarlas online en [https://www.office.com/](https://www.office.com/)
-
-Para editar los archivos .docx puedes usar LibreOffice, WPS Office, Microsoft Windows (si lo tenga instalado en Wine o PlayOnLinux)
-
----
-
-#### Temas sobre instalación de fuentes tipográficas
-Le dejo los siguientes temas importantes que he escrito sobre las fuentes tipográficas en mi Blog:
-
-**Instalar fuentes tipográficas de Windows en Linux(Ubuntu, Debian, Fedora, etc) para compatibilidad de archivos de Midrosoft Office en LibreOffice, WPS Office**  
-[https://facilitarelsoftwarelibre.blogspot.com/2018/11/instalar-fuentes-de-windows-en.html](https://facilitarelsoftwarelibre.blogspot.com/2018/11/instalar-fuentes-de-windows-en.html)
-
-
-**Cómo instalar fuentes tipográficas descargadas desde Internet en Linux + Análisis de las fuentes de los repositorios de Debian, Ubuntu: Ibm, Noto, Liberation, Dejavu, Bitstream Vera , Freefont**  
-[https://facilitarelsoftwarelibre.blogspot.com/2021/01/como-instalar-fuentes-tipograficas-en-linux.html](https://facilitarelsoftwarelibre.blogspot.com/2021/01/como-instalar-fuentes-tipograficas-en-linux.html)
-
-**Fuentes monoespaciadas (mono fonts) en WPS Office no están alineadas**  
-[https://facilitarelsoftwarelibre.blogspot.com/2022/05/problema-con-las-fuentes-monoespaciadas.html](https://facilitarelsoftwarelibre.blogspot.com/2022/05/problema-con-las-fuentes-monoespaciadas.html)
-
----
-
-## Atajos Asignados  
-Los siguientes son los atajos de teclado que le he puesto:
-
-|         Función          |          Atajo           |
-| ------------------------ | ------------------------ |
-| Nuevo archivo            | `Ctrl+N`                 |
-| Abrir archivo            | `Ctrl+O`                 |
-| Guardar archivo          | `Ctrl+S`                 |
-| Guardar como             | `Ctrl+Shift+S`           |
-| Salir                    | `Ctrl+Q`                 |
-| Seleccionar todo         | `Ctrl+A`                 |
-| Cambiar fuente           | `Ctrl+F`                 |
-| Cambiar velocidad máxima | `Ctrl+Shift+V`           |
-| Acerca de                | `Ctrl+H`                 |
-| Deshacer	               | `Ctrl+Z`                 |
-| Rehacer	               | `Ctrl+Shift+Z`           |
-| Iniciar Scroll	       | `Ctrl+Barra espaciadora` |
-| Pausar Scroll	           | `Ctrl+Barra espaciadora` |
-
----
-
-## Notas sobre las dependencias:
-Explicación de para qué sirve cada una de las dependencias instaladas 😊:
-
----
-
-### 1. `python3`
-   - **Descripción:** Instala el intérprete de Python 3.
-   - **Función:** Es la base para ejecutar programas escritos en Python.
-
----
-
-### 2. `python3-pyqt6`
-   - **Descripción:** Es un conjunto de enlaces de Python para Qt 6, una biblioteca popular para crear interfaces gráficas.
-   - **Función:** Proporciona los componentes gráficos (ventanas, botones, menús, etc.) que se utilizan en el programa.
-   - **Ejemplo:** Permite crear ventanas principales, pestañas, etiquetas, y controles como el botón de "Iniciar" o la barra de desplazamiento.
-
----
-
-### 3. `python3-mpmath`
-   - **Descripción:** Biblioteca para cálculos matemáticos con precisión arbitraria.
----
-
-### 4. `python3-simplejson`
-   - **Descripción:** Biblioteca para trabajar con datos en formato JSON (JavaScript Object Notation).
-   - **Función:** Facilita la lectura y escritura de archivos de configuración o datos estructurados en JSON. Sirve para guardar configuraciones como la fuente, velocidad de desplazamiento, o preferencias del usuario.
-
----
-
-### 5. `python3-all-dev`
-   - **Descripción:** Incluye archivos de desarrollo para Python 3, como cabeceras y herramientas necesarias para compilar extensiones en C/C++.
-   - **Función:** Es útil si necesitas compilar bibliotecas adicionales o trabajar en el desarrollo de módulos personalizados para Python.
-
----
-
-### 6. `fonts-noto-mono`
-   - **Descripción:** Es un conjunto de fuentes monoespaciadas de alta calidad de la familia Noto.
-   - **Función:** Proporciona una fuente monoespaciada (usada comúnmente en editores de texto y código) para mostrar contenido de manera clara y legible. Es la fuente predeterminada para mostrar letras y acordes en el editor de texto.
-
----
-
-### 7. `python3-chardet`
-   - **Descripción:** Biblioteca para detectar la codificación de archivos de texto.
-   - **Función:** Permite que el programa identifique automáticamente la codificación de un archivo al abrirlo, asegurando que pueda manejar archivos en formatos como UTF-8, ISO-8859-1, o Windows-1252, y otros.
-
-### 8. `qt6-translations-l10n`
-El paquete `qt6-translations-l10n` en Debian 12 proporciona archivos de traducción para la biblioteca Qt6, lo que significa que añade soporte para múltiples idiomas en las aplicaciones desarrolladas con Qt6, incluyendo el español, entre otros idiomas.
-
-Qt es un framework ampliamente utilizado para crear interfaces gráficas de usuario (GUI) y aplicaciones multiplataforma. Los cuadros de diálogo como "Abrir", "Guardar como", y otros mensajes de sistema que ves en el editor en Python se generan mediante la interfaz de Qt, y esos mensajes pueden estar traducidos dependiendo de la configuración de idioma del sistema.
-
-**Función del paquete `qt6-translations-l10n`:**
-- **Traducción de la interfaz**: Cuando instalas el paquete `qt6-translations-l10n`, estás proporcionando las traducciones necesarias para que los elementos de la interfaz de Qt, como los diálogos de archivo, botones, menús, etc., aparezcan en el idioma configurado en tu sistema (en este caso, español).
-
-La parte del código agregado para que funcione esto es:
-
-```
-import sys
-import os
-import math
-
-# Resto del código
-
-from PyQt6.QtCore import Qt, QTimer, QUrl, QTranslator, QLocale, QLibraryInfo
-
-    # Resto del código
-
-    def __init__(self):
-        super().__init__()
-        self.translator = QTranslator()
-
-        translations_path = QLibraryInfo.path(QLibraryInfo.LibraryPath.TranslationsPath)
-        print(f"Ruta de traducciones: {translations_path}")  # Depuración
-
-        # Cargar traducción al español
-        if self.translator.load("qtbase_es", translations_path):
-            QApplication.installTranslator(self.translator)
-            print("Traducción al español cargada correctamente.")
-        else:
-            print("No se pudo cargar la traducción al español.")
-            
-    # Resto del código
+```bash
+./Launcher.sh
 ```
 
 ---
 
-Que Dios les bendiga
+## Uso
+
+### Abrir canciones
+
+Existen dos maneras de cargar archivos de texto con acordes:
+
+- **Arrastrar y soltar**: Arrastra un archivo `.txt` hacia la ventana del programa.
+- **Desde el menú**: Haz clic en **Archivo > Abrir** y selecciona el archivo.
+
+### Transponer acordes
+
+Haz clic en el botón **"Transponer"** (esquina inferior derecha) para abrir un menú de semitonos. Selecciona un valor entre -7 y +7 para transponer todos los acordes de la canción actual.
+
+Puedes cambiar entre sostenidos (#) y bemoles (b) desde **Herramientas > Usar Sostenidos**.
+
+### Control de auto-scroll
+
+- Haz clic en **"Iniciar"** para comenzar el desplazamiento automático.
+- Haz clic en **"Detener"** para pausarlo.
+- Ajusta la velocidad con el deslizador inferior.
+- Puedes cambiar la velocidad máxima desde **Herramientas > Cambiar Velocidad Máxima**.
+
+### Buscar y reemplazar
+
+Presiona **Ctrl+F** o ve a **Editar > Buscar y Reemplazar** para abrir el diálogo de búsqueda. Puedes activar la coincidencia exacta para distinguir entre mayúsculas y minúsculas.
+
+### Cambiar fuente
+
+Ve a **Formato > Fuente** para seleccionar la familia y tamaño de fuente.
+
+### Cambiar idioma del corrector
+
+Ve a **Herramientas > Idioma del Corrector** para alternar entre español e inglés.
+
+---
+
+## Atajos de teclado
+
+| Atajo | Acción |
+|-------|--------|
+| `Ctrl+O` | Abrir archivo |
+| `Ctrl+S` | Guardar archivo |
+| `Ctrl+F` | Buscar y reemplazar |
+| `Ctrl++` | Aumentar tamaño de fuente |
+| `Ctrl+-` | Disminuir tamaño de fuente |
+
+---
+
+## Archivos de ejemplo
+
+La carpeta `Ejemplos/` incluye canciones de muestra en formato texto con acordes:
+
+- A quien iré - Luis Enrique Espinosa (C)
+- A quien iré - Luis Enrique Espinosa (D)
+- Canta al Señor - Vertical (C#)
+- De tal manera - Abel Zabala (A#)
+- El Espíritu de Dios - Hector Pinilla (E)
+- La niña de tus ojos - Daniel Calveti (A)
+- La niña de tus ojos - Daniel Calveti (C)
+- No hay lugar más alto - Miel San Marcos (A)
+- Renuévame - Marcos Witt (C)
+- Renuévame - Marcos Witt (D)
+- Sumergeme - Jesús A.R (A#)
+
+---
+
+## Formato de acordes soportado
+
+El programa reconoce acordes en el siguiente formato:
+
+```
+C, Cm, Cmaj7, Cdim, Caug, Csus4, Cadd9
+C#, Db, D, Dm, D7, Dsus2
+E, Em, E7, Emaj7
+F, Fm, F#m, Gb
+G, G7, Gsus4, G/B
+A, Am, A7, A#m, Bb
+B, Bm, B7
+```
+
+Los acordes deben estar en líneas donde la mayoría de las palabras sean acordes para que la transposición funcione correctamente.
+
+---
+
+## Configuración
+
+La configuración se guarda automáticamente en un archivo JSON (`chord_autoscroll.json`) e incluye:
+
+- Familia y tamaño de fuente
+- Velocidad de desplazamiento y posición del deslizador
+- Velocidad máxima de desplazamiento
+- Preferencia de sostenidos/bemoles
+- Última ruta de archivo abierto
+
+---
+
+## Dependencias
+
+| Paquete | Descripción |
+|---------|-------------|
+| `python3-pyqt6` | Framework gráfico para la interfaz de usuario |
+| `python3-chardet` | Detección automática de codificación de archivos |
+| `python3-enchant` | Verificación ortográfica (corrector) |
+| `fonts-noto-mono` | Fuente monoespaciada para visualización de acordes |
+| `qt6-translations-l10n` | Archivos de traducción de Qt para la interfaz en español |
+| `python3-all-dev` | Archivos de desarrollo necesarios para compilar `enchant` |
+
+---
+
+## Detalle técnico: Uso de dependencias
+
+A continuación se explica cómo se utiliza cada paquete en el código:
+
+### 1. PyQt6 (`python3-pyqt6`)
+
+Es el framework principal que provee toda la interfaz gráfica. Se usa en tres módulos:
+
+**QtGui - Componentes de interfaz:**
+```python
+from PyQt6.QtGui import (QFont, QAction, QActionGroup, QTextCursor,
+                          QShortcut, QKeySequence, QTextCharFormat, QColor,
+                          QSyntaxHighlighter, QRegularExpression)
+```
+
+**QtWidgets - Ventanas y controles:**
+```python
+from PyQt6.QtWidgets import (QApplication, QMainWindow, QTextEdit, QVBoxLayout,
+                              QHBoxLayout, QWidget, QPushButton, QLabel, QSlider,
+                              QFileDialog, QMenu, QMessageBox, QInputDialog,
+                              QTabWidget, QDialog, QLineEdit, QCheckBox, QGridLayout)
+```
+
+**QtCore - Funcionalidades principales:**
+```python
+from PyQt6.QtCore import Qt, QTimer, QTranslator, QLocale, QLibraryInfo
+```
+
+**Ejemplo de uso - Timer para auto-scroll:**
+```python
+# Inicia un temporizador que llama a scroll_text cada cierto intervalo
+self.scroll_timer = QTimer()
+self.scroll_timer.timeout.connect(self.scroll_text)
+self.scroll_timer.start(self.scroll_speed)
+```
+
+**Ejemplo de uso - Atajos de teclado:**
+```python
+# Crea un atajo de teclado para buscar (Ctrl+F)
+find_shortcut = QShortcut(QKeySequence("Ctrl+F"), self)
+find_shortcut.activated.connect(self.show_find_replace_dialog)
+```
+
+---
+
+### 2. Chardet (`python3-chardet`)
+
+Se utiliza para detectar automáticamente la codificación de archivos de texto al abrirlos. Esto permite manejar archivos en UTF-8, ISO-8859-1, Windows-1252, etc.
+
+**Uso en el código (línea 749):**
+```python
+def open_dropped_file(self, file_path):
+    if os.path.exists(file_path) and file_path.lower().endswith('.txt'):
+        with open(file_path, 'rb') as file:
+            raw_data = file.read()
+            # Detecta la codificación del archivo
+            detected = chardet.detect(raw_data)
+            encoding = detected['encoding'] or 'utf-8'
+```
+
+**¿Por qué es necesario?** Sin `chardet`, al abrir un archivo con codificación diferente a UTF-8 (por ejemplo, un archivo creado en Windows con Windows-1252), el texto podría mostrar caracteres incorrectos (como � en lugar de acentos).
+
+---
+
+### 3. Enchant (`python3-enchant`)
+
+Se utiliza para la verificación ortográfica en tiempo real. Resalta palabras mal escritas con un subrayado rojo ondulado.
+
+**Uso en el código (líneas 31-63):**
+```python
+import enchant
+
+class SpellChecker(QSyntaxHighlighter):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.spell_dict = None
+        self.current_language = 'es'
+        self.load_dictionary()
+
+    def load_dictionary(self):
+        try:
+            # Carga el diccionario español
+            self.spell_dict = enchant.Dict(self.current_language)
+        except enchant.errors.DictNotFoundError:
+            # Si no encuentra español, intenta con inglés
+            try:
+                self.spell_dict = enchant.Dict("en_US")
+                self.current_language = 'en_US'
+            except:
+                self.spell_dict = None
+
+    def highlightBlock(self, text):
+        if not self.spell_dict:
+            return
+        # Patrón para encontrar palabras (solo letras)
+        word_pattern = QRegularExpression(r'\b[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ]+\b')
+        iterator = word_pattern.globalMatch(text)
+
+        while iterator.hasNext():
+            match = iterator.next()
+            word = match.captured(0)
+            # Si la palabra no está en el diccionario, la resalta
+            if not self.spell_dict.check(word):
+                self.setFormat(match.capturedStart(), match.capturedLength(),
+                               self.misspelled_format)
+```
+
+**¿Por qué es necesario?** `enchant` es un backend de verificación ortográfica que soporta múltiples diccionarios. Sin él, no se podría ofrecer la función de resaltar errores ortográficos en las letras de las canciones.
+
+---
+
+### 4. Qt Translations (`qt6-translations-l10n`)
+
+Proporciona los archivos de traducción de Qt al español. No se importa directamente en Python, sino que `QTranslator` busca los archivos `.qm` en las rutas del sistema.
+
+**Uso en el código (líneas 311-320):**
+```python
+def __init__(self):
+    super().__init__()
+    self.translator = QTranslator()
+    # Obtiene la ruta donde Qt guarda las traducciones
+    translations_path = QLibraryInfo.path(QLibraryInfo.LibraryPath.TranslationsPath)
+
+    # Carga la traducción al español de Qt
+    if self.translator.load("qtbase_es", translations_path):
+        QApplication.installTranslator(self.translator)
+```
+
+**¿Por qué es necesario?** Sin este paquete, los diálogos nativos de Qt (como "Abrir archivo", "Guardar como", botones "Aceptar/Cancelar") aparecerían en inglés. Con el paquete instalado, estos elementos se muestran automáticamente en español.
+
+---
+
+### 5. Noto Mono (`fonts-noto-mono`)
+
+Es la fuente predeterminada para mostrar el texto. No se importa en Python, sino que se especifica por nombre en la configuración.
+
+**Uso en el código (línea 1038):**
+```python
+def load_config(self):
+    if os.path.exists(self.config_file):
+        with open(self.config_file, 'r') as f:
+            self.config = json.load(f)
+    else:
+        self.config = {
+            'max_speed': 100,
+            'font_family': 'Noto Mono',  # Fuente predeterminada
+            'font_size': 10,
+            'last_opened_path': '',
+            'use_sharps': True
+        }
+```
+
+**¿Por qué es necesario?** Una fuente monoespaciada es esencial para alinear correctamente los acordes con las letras de las canciones. Los acordes deben quedar exactamente encima de la sílaba donde se tocan, y esto solo es posible con fuentes de ancho fijo.
+
+---
+
+### 6. Python All Dev (`python3-all-dev`)
+
+Es un paquete de desarrollo que proporciona las cabeceras de Python necesarias para compilar extensiones en C/C++. No se usa directamente en el código, pero es un requisito de compilación para `python3-enchant`.
+
+**¿Por qué es necesario?** El paquete `python3-enchant` tiene dependencias que requieren compilación en C. Sin `python3-all-dev`, la instalación de `enchant` fallaría con errores de compilación.
+
+---
+
+## Licencia
+
+Este proyecto está licenciado bajo la licencia GPL-3.0. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+
+---
+
+Que Dios les bendiga.
